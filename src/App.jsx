@@ -9,9 +9,6 @@ export default function App() {
     const [score, setScore] = useState(0)
     const [highScore, setHighScore] = useState(0)
     const [cards, setCards] = useState(data)
-// Find the clicked card
-// If the clicked value is false increment score && set clicked value to true
-// else reset score and set highscore and reset all clicked values to false
 
     const handleClick = (e) => {
       const card = cards.find(item => item.name === e.target.textContent)
@@ -25,35 +22,24 @@ export default function App() {
       } else {
         console.log(data)
         setCards(data)
-        setHighScore(score)
+        if (score > highScore) {
+          setHighScore(score)
+        }
         setScore(0)
       }
     }
 
-    const updateCards = () => {
-      setCards(prevState => {
-        return ([
-          ...prevState,
-          {
-            ...prevState,
-            clicked: true,
-          }
-        ])
-      })
-    }
-
     const mapper = cards.map((item, index) => {
     return (
-    <Card
-    key={index}
-    click={handleClick}
-    cardName={item.name}
-    >
-    </Card>)
+        <Card
+        key={index}
+        click={handleClick}
+        cardName={item.name}
+        >
+        </Card>)
   })
 
     useEffect(() => {
-      console.log('render')
       setCards(() => cards.sort(() => Math.random() - 0.5))
     }, [score])
 
