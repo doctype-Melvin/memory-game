@@ -1,11 +1,13 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Card from "./Card";
 
 export default function Gameboard(props) {
-    const mapper = props.cards.map((item) => <div key={item.name}>{item.name}</div>)
+    
+    
     return (
         <div className="gameboardContainer">
-            {mapper}
+            {props.mapper}
         </div>
     )
 }
