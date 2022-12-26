@@ -3,51 +3,51 @@ import React from 'react'
 import Header from './components/Header'
 import Gameboard from './components/Gameboard'
 import Card from './components/Card'
+import data from './cardsData'
 
 export default function App() {
     const [score, setScore] = useState(0)
     const [highScore, setHighScore] = useState(0)
-    const [cards, setCards] = useState(
-      [
-        {
-          index: 1,
-          name: 'One',
-          clicked: false
-        },
-        {
-          index: 2,
-          name: 'Two',
-          clicked: false
-        },
-        {
-          index: 3,
-          name: 'Three',
-          clicked: false
-        },
-      ]
-    )
+    const [cards, setCards] = useState(data)
 // Find the clicked card
 // If the clicked value is false increment score && set clicked value to true
 // else reset score and set highscore and reset all clicked values to false
 
-    const increment = (e) => {
-      whichCard(e)
-      return setScore(score + 1)
+    const handleClick = (e) => {
+      const card = cards.find(item => item.name === e.target.textContent)
+      if (card.clicked === false) {
+        setScore(score + 1)
+        const newCard = {
+          ...card,
+          clicked: true
+        };
+      setCards(cards.map(item => (item.name === newCard.name) ? item = newCard : item))
+      } else {
+        console.log(data)
+        setCards(data)
+        setHighScore(score)
+        setScore(0)
+      }
     }
 
-    const whichCard = (e) => {
-      const target = cards.find(item => item.name === e.target.textContent)
-      console.log(target.clicked)
-      return target
+    const updateCards = () => {
+      setCards(prevState => {
+        return ([
+          ...prevState,
+          {
+            ...prevState,
+            clicked: true,
+          }
+        ])
+      })
     }
 
-    const mapper = cards.map(item => {
+    const mapper = cards.map((item, index) => {
     return (
     <Card
-    key={item.index}
-    click={increment}
+    key={index}
+    click={handleClick}
     cardName={item.name}
-    which={whichCard}
     >
     </Card>)
   })
