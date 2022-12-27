@@ -1,32 +1,32 @@
 const data = [
     {
       name: 'diamond',
-      src: './diamond.png',
+      src: '../dist/assets/diamond.png',
       clicked: false
     },
     {
       name: 'emerald',
-      src: './emerald.png',
+      src: '../dist/assets/emerald.png',
       clicked: false
     },
     {
       name: 'gold',
-      src: './gold.png',
+      src: '../dist/assets/gold.png',
       clicked: false
     },
     {
       name: 'chicken',
-      src: './grass.png',
+      src: '../dist/assets/grass.png',
       clicked: false
     },
     {
       name: 'health',
-      src: './health.png',
+      src: '../dist/assets/health.png',
       clicked: false
     },
     {
       name: 'pickaxe',
-      src: './pickaxe.png',
+      src: '../dist/assets/pickaxe.png',
       clicked: false
     }
   ]
