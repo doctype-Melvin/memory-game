@@ -5,8 +5,20 @@ export default function Card(props) {
         <div 
         className="cardContainer"
         id="card"
+        name={props.cardName.toUpperCase()}
         onClick={props.click}>
-            <h1>{props.cardName}</h1>
+            <img 
+            className="cardImg" 
+            src={props.img}
+            name={props.cardName.toUpperCase()}
+            >
+            </img>
+            
+            <span
+            name={props.cardName.toUpperCase()}
+            >
+            {props.cardName.toUpperCase()}
+            </span>
         </div>
     )
 }

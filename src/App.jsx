@@ -11,7 +11,7 @@ export default function App() {
     const [cards, setCards] = useState(data)
 
     const handleClick = (e) => {
-      const card = cards.find(item => item.name === e.target.textContent)
+      const card = cards.find(item => item.name.toUpperCase() === e.target.attributes.name.value)
       if (card.clicked === false) {
         setScore(score + 1)
         const newCard = {
@@ -35,6 +35,7 @@ export default function App() {
         key={index}
         click={handleClick}
         cardName={item.name}
+        img={item.src}
         >
         </Card>)
   })

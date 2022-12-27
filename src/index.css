@@ -2,9 +2,97 @@
   box-sizing: border-box;
 }
 
+:root {
+  --minecraft-dark-green: #00AA00;
+  --minecraft-gold: #FFAA00;
+  --minecraft-aqua: #55FFFF;
+  --minecraft-dark-blue: #0000AA;
+  --white: #fff;
+}
+
 html, body {
   font-family: Arial, Helvetica, sans-serif;
   height: 100vh;
   padding: 0;
   margin: 0;
+  background-color:silver;
+  background-color: #AA0000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg stroke='%23FF5555' stroke-width='61.7' stroke-opacity='0' %3E%3Ccircle fill='%23AA0000' cx='0' cy='0' r='1800'/%3E%3Ccircle fill='%23af1800' cx='0' cy='0' r='1700'/%3E%3Ccircle fill='%23b52700' cx='0' cy='0' r='1600'/%3E%3Ccircle fill='%23ba3200' cx='0' cy='0' r='1500'/%3E%3Ccircle fill='%23bf3d00' cx='0' cy='0' r='1400'/%3E%3Ccircle fill='%23c44600' cx='0' cy='0' r='1300'/%3E%3Ccircle fill='%23c94f00' cx='0' cy='0' r='1200'/%3E%3Ccircle fill='%23ce5800' cx='0' cy='0' r='1100'/%3E%3Ccircle fill='%23d36100' cx='0' cy='0' r='1000'/%3E%3Ccircle fill='%23d86900' cx='0' cy='0' r='900'/%3E%3Ccircle fill='%23dd7100' cx='0' cy='0' r='800'/%3E%3Ccircle fill='%23e27900' cx='0' cy='0' r='700'/%3E%3Ccircle fill='%23e78200' cx='0' cy='0' r='600'/%3E%3Ccircle fill='%23ec8a00' cx='0' cy='0' r='500'/%3E%3Ccircle fill='%23f19200' cx='0' cy='0' r='400'/%3E%3Ccircle fill='%23f59a00' cx='0' cy='0' r='300'/%3E%3Ccircle fill='%23faa200' cx='0' cy='0' r='200'/%3E%3Ccircle fill='%23FFAA00' cx='0' cy='0' r='100'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+
+}
+
+.gameContainer, .headerContainer,
+.cardContainer, .gameboardContainer {
+  display: flex;
+}
+
+.gameContainer, 
+.cardContainer, 
+.headerContainer {
+  flex-direction: column;
+  align-items: center;
+}
+
+.title, .scoreboard {
+  background: rgba(255, 255, 255, 0.598);
+  padding: 25px 50px;
+}
+
+.cardContainer, 
+.title, .scoreboard {
+  border-radius: 20px;
+}
+
+.score, .highScore,
+.cardContainer > span {
+  font-family: monospace;
+}
+
+.score, .highScore {
+  font-size: 1.5rem;
+}
+
+.score {
+  margin-bottom: 15px;
+}
+
+.gameContainer,
+.cardContainer,
+.gameboardContainer {
+  justify-content: center;
+}
+
+.gameboardContainer {
+  width: 100vw;
+  height: 100vh;
+  gap: 35px;
+
+}
+
+.cardContainer {
+  justify-content: space-evenly;
+  border: solid 2px var(--white);
+  width: 150px;
+  height: 150px;
+  box-shadow: 5px 10px 45px rgb(231, 231, 231);
+  background-color: rgba(255, 255, 255, 0.598);
+  margin-top: 50px;
+}
+
+.cardContainer:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.752);
+  box-shadow: 7px 15px 55px rgb(231, 231, 231);
+
+}
+
+.cardContainer > span {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.cardImg {
+  width: 60px;
 }
